@@ -19,37 +19,30 @@ export const BackgroundImage = styled.div<{ src: string }>`
   filter: blur(1px); // Opcional, para dar más realismo
 `;
 
-export const OverlayButton = styled.img`
+interface OverlayImageProps {
+  src: string;
+  bottom: string;
+  left: string;
+  width: string;
+  perspective: string;
+  rotateX: string;
+  rotateZ: string;
+  opacity: number;
+}
+
+export const OverlayImage = styled.img<OverlayImageProps>`
   position: absolute;
-  bottom: 10%; // Ajusta la posición según la perspectiva
-  left: 20%;
-  transform: translate(-50%, 0) perspective(300px) rotateX(45deg)
-    rotateZ(-12deg); // Ajusta el ángulo de la perspectiva
-  width: 10%;
+  bottom: ${(props) => props.bottom};
+  left: ${(props) => props.left};
+  transform: translate(-50%, 0) perspective(${(props) => props.perspective})
+    rotateX(${(props) => props.rotateX}) rotateZ(${(props) => props.rotateZ});
+  width: ${(props) => props.width};
   height: auto;
-  opacity: 0.6; // Ajusta la transparencia
-  transition: opacity 0.3s, box-shadow 0.3s;
+  opacity: ${(props) => props.opacity};
+  transition: opacity 0.3s, filter 0.3s;
 
   &:hover {
-    opacity: 0.9; // Aumenta la opacidad
-    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8)); // Efecto glow dorado
-    cursor: pointer;
-  }
-`;
-
-export const OverlayTablet = styled.img`
-  position: absolute;
-  bottom: 3%; // Ajusta la posición según la perspectiva
-  left: 36%;
-  transform: translate(-50%, 0) perspective(1000px) rotateX(45deg)
-    rotateZ(-21deg); // Ajusta el ángulo de la perspectiva
-  width: 15%;
-  height: auto;
-  opacity: 0.6; // Ajusta la transparencia
-  transition: opacity 0.3s, box-shadow 0.3s;
-
-  &:hover {
-    opacity: 0.9; // Aumenta la opacidad
+    opacity: 1; // Aumenta la opacidad
     filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8)); // Efecto glow dorado
     cursor: pointer;
   }
