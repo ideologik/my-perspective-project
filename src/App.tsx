@@ -1,13 +1,20 @@
 import React from "react";
-import { Container, BackgroundImage, OverlayImage } from "./styles";
+import {
+  Container,
+  BackgroundImage,
+  OverlayTablet,
+  OverlayButton,
+} from "./styles";
 import backgroundSrc from "/background.jpg";
-import overlaySrc from "/overlay.png";
+import tabletSrc from "/overlay.png";
+import buttonSrc from "/info.png";
 
 const App: React.FC = () => {
   return (
     <Container>
       <BackgroundImage src={backgroundSrc} />
-      <OverlayImage src={overlaySrc} />
+      <OverlayTablet src={tabletSrc} />
+      <OverlayButton src={buttonSrc} />
     </Container>
   );
 };
